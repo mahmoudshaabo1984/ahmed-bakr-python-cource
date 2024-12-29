@@ -1,0 +1,109 @@
+<html>
+<p>مقارنة تفصيلية بين <strong>القوائم (List)</strong>، <strong>المجموعات (Set)</strong>، و<strong>الصفوف (Tuple)</strong>:</p>
+<hr>
+<h3><strong>1. القوائم (List):</strong></h3>
+<ul>
+<li><strong>الوصف</strong>:
+قائمة مرتبة (Ordered) يمكن أن تحتوي على عناصر قابلة للتكرار (Duplicates).</li>
+<li><strong>الخصائص</strong>:
+<ul>
+<li><strong>مرتبة</strong>: العناصر تبقى في نفس الترتيب الذي أُضيفت به.</li>
+<li><strong>قابلة للتغيير</strong> (Mutable): يمكن تعديلها بعد إنشائها (إضافة، حذف، أو تعديل العناصر).</li>
+<li><strong>تدعم التكرار</strong>: يمكن أن تحتوي على نفس القيمة أكثر من مرة.</li>
+</ul>
+</li>
+<li><strong>الاستخدامات</strong>:
+تُستخدم لتخزين مجموعة من البيانات مع الحاجة لإجراء تعديلات مستمرة عليها.</li>
+<li><strong>الأمثلة</strong>:<pre><code class="language-python">my_list = [1, 2, 3, 3, &quot;Python&quot;]
+</code></pre>
+</li>
+</ul>
+<hr>
+<h3><strong>2. المجموعات (Set):</strong></h3>
+<ul>
+<li><strong>الوصف</strong>:
+مجموعة غير مرتبة (Unordered) لا تسمح بتكرار العناصر.</li>
+<li><strong>الخصائص</strong>:
+<ul>
+<li><strong>غير مرتبة</strong>: لا يتم الاحتفاظ بالترتيب.</li>
+<li><strong>قابلة للتغيير</strong> (Mutable): يمكن إضافة أو إزالة العناصر، لكن العناصر داخلها يجب أن تكون قابلة للتجزئة (hashable) مثل الأعداد والنصوص.</li>
+<li><strong>لا تدعم التكرار</strong>: إذا تم إدخال عنصر مكرر، سيتم الاحتفاظ بنسخة واحدة فقط.</li>
+</ul>
+</li>
+<li><strong>الاستخدامات</strong>:
+تُستخدم عند الحاجة للعمل مع مجموعة من العناصر الفريدة، مثل العمليات على المجموعات الرياضية (الاتحاد، التقاطع).</li>
+<li><strong>الأمثلة</strong>:<pre><code class="language-python">my_set = {1, 2, 3, 3}  # المجموعة ستكون {1, 2, 3}
+</code></pre>
+</li>
+</ul>
+<hr>
+<h3><strong>3. الصفوف (Tuple):</strong></h3>
+<ul>
+<li><strong>الوصف</strong>:
+قائمة مرتبة (Ordered) لا يمكن تعديلها (Immutable).</li>
+<li><strong>الخصائص</strong>:
+<ul>
+<li><strong>مرتبة</strong>: العناصر تبقى في نفس الترتيب الذي أُضيفت به.</li>
+<li><strong>غير قابلة للتغيير</strong> (Immutable): لا يمكن تعديل العناصر بعد إنشاء الكائن.</li>
+<li><strong>تدعم التكرار</strong>: يمكن أن تحتوي على نفس القيمة أكثر من مرة.</li>
+</ul>
+</li>
+<li><strong>الاستخدامات</strong>:
+تُستخدم لتخزين بيانات ثابتة لا تحتاج إلى تعديل (مثل الإحداثيات أو إعدادات ثابتة).</li>
+<li><strong>الأمثلة</strong>:<pre><code class="language-python">my_tuple = (1, 2, 3, &quot;Python&quot;)
+</code></pre>
+</li>
+</ul>
+<hr>
+<h3><strong>مقارنة في جدول:</strong></h3>
+<table>
+<thead>
+<tr>
+<th><strong>الخاصية</strong></th>
+<th><strong>List (القوائم)</strong></th>
+<th><strong>Set (المجموعات)</strong></th>
+<th><strong>Tuple (الصفوف)</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>الترتيب (Order)</strong></td>
+<td>مرتبة (Ordered)</td>
+<td>غير مرتبة (Unordered)</td>
+<td>مرتبة (Ordered)</td>
+</tr>
+<tr>
+<td><strong>التكرار (Duplicates)</strong></td>
+<td>مسموح</td>
+<td>غير مسموح</td>
+<td>مسموح</td>
+</tr>
+<tr>
+<td><strong>قابلة للتغيير (Mutable)</strong></td>
+<td>نعم</td>
+<td>نعم</td>
+<td>لا</td>
+</tr>
+<tr>
+<td><strong>الأداء (Performance)</strong></td>
+<td>أبطأ في عمليات البحث</td>
+<td>أسرع في البحث (O(1))</td>
+<td>أسرع في القراءة الثابتة</td>
+</tr>
+<tr>
+<td><strong>الاستخدامات</strong></td>
+<td>بيانات قابلة للتعديل</td>
+<td>بيانات فريدة</td>
+<td>بيانات ثابتة</td>
+</tr>
+</tbody>
+</table>
+<hr>
+<h3><strong>نصائح:</strong>:</h3>
+<ol>
+<li>استخدم <strong>القوائم</strong> إذا كنت تحتاج إلى تعديل البيانات أو الاحتفاظ بالترتيب.</li>
+<li>استخدم <strong>المجموعات</strong> إذا كنت بحاجة إلى تخزين قيم فريدة أو القيام بعمليات المجموعات الرياضية.</li>
+<li>استخدم <strong>الصفوف</strong> إذا كنت تعمل مع بيانات ثابتة لا تحتاج إلى تعديل.</li>
+</ol>
+<hr>
+</html>

@@ -1,0 +1,50 @@
+أمثلة على العمليات الرياضية التي تم التحدث عنها في محاضرة الأمس 
+
+# الجمع (Addition) 
+# عملية جمع رقمين
+x = 5
+y = 3
+result = x + y
+print("Addition (الجمع):", result)  # 8
+
+# الطرح (Subtraction)
+# عملية طرح رقم من رقم آخر
+x = 10
+y = 4
+result = x - y
+print("Subtraction (الطرح):", result)  # 6
+
+# الضرب (Multiplication)
+# عملية ضرب رقمين
+x = 6
+y = 7
+result = x * y
+print("Multiplication (الضرب):", result)  # 42
+
+# القسمة (Division)
+# عملية قسمة رقمين
+x = 15
+y = 2
+result = x / y
+print("Division (القسمة):", result)  # 7.5
+
+# التقريب (Floor Division)
+# عملية قسمة رقمين وإزالة الكسر
+x = 15
+y = 2
+result = x // y
+print("Floor Division (القسمة الأرضية):", result)  # 7
+
+# باقي القسمة (Modulo)
+# حساب الباقي من قسمة رقمين
+x = 17
+y = 5
+result = x % y
+print("Modulo (باقي القسمة):", result)  # 2
+
+# الأس (Exponentiation)
+# رفع رقم إلى قوة معينة
+x = 2
+y = 3
+result = x ** y
+print("Exponentiation (الأس):", result)  # 8
