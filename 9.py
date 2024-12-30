@@ -421,3 +421,102 @@ f = {'f': 'ahmed', 'l': 'bakr'}
 # print(str(f))
 # print(type(str(f)))
 
+
+
+
+# تحويل اأنواع البيانات الثلاثة  a b c 
+# الى قاموس 
+# لم نحول النوع الرابع لأنه بالأصل قاموس 
+#  هنا سوف يحدث خطء لأنه لتحويل  نوع البيانات الى قاموس 
+# يحتاج قيمتين على الآقل 
+# ValueError: dictionary update sequence element #0 has length 1; 2 is required   
+# a = 'ahmed'
+# b = ['ahmed', 'bakr']
+# c = {'ahmed', 'bakr'}
+# d = 'ahmed', 'bakr'
+# f = {'f': 'ahmed', 'l': 'bakr'}
+# print(dict(a))
+# print(type(dict(a)))
+# print(dict(b))
+# print(type(dict(b)))
+# print(dict(c))
+# print(type(dict(c)))
+# print(dict(d))
+# print(type(dict(d)))
+
+
+
+# العمليات المنطقية 
+# false
+# print(50 < 40)
+
+
+# العمليات المنطقية 
+# True
+# print(50 > 40)
+
+
+
+# العمليات المنطقية 
+# false
+# print(50 > 50)
+
+
+
+# العمليات المنطقية 
+# false
+# print(50 < 50)
+
+
+# العمليات المنطقية 
+# True
+# print(50 <= 50)
+
+
+# العمليات المنطقية 
+# True
+# print(50 >= 50)
+
+
+
+# العمليات المنطقية 
+# True
+# print(50 == 50)
+
+
+
+# العمليات المنطقية 
+# False
+# print(50 == 49)
+
+
+# using and with priint with numbers 
+# False
+# وظيفة and التحقق من الشرطين 
+# بمعنى آخر لا تعطيك True الا اذا كان الشرطين صحيحين 
+# هنا أعطانا False
+# print(50 == 50 and 50 < 48)
+
+
+
+
+# هنا سوف نقوم بتغيير الشرط الثاني 
+# لكي يتتطابق مع الشرط الأول 
+# True
+# print(50 == 50 and 50 > 48)
+
+
+
+# using or 
+# وظيفة or هو طباعة شرط من شرطين 
+# Tru 
+# هنا طبع True  لأن الشرط الآول صحيح 
+# print(50 == 50 or 50 > 48)
+
+
+
+
+# using not 
+# وظيفة not هو نفي الشرط حتى ولو كان صحيحا 
+# False 
+print(not 50 == 50)
