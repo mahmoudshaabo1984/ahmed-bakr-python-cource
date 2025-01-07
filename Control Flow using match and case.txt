@@ -1,0 +1,21 @@
+# تعريف المتغير
+status = "in_progress"
+
+# استخدام match و case للتحقق من القيمة
+# تعريف المتغير status وتعيين قيمته الافتراضية إلى "in_progress"
+match status:
+    # الحالة الأولى: إذا كانت القيمة "new"
+    case "new":
+        print("The task is new.")  # طباعة رسالة تشير إلى أن المهمة جديدة
+    
+    # الحالة الثانية: إذا كانت القيمة "in_progress"
+    case "in_progress":
+        print("The task is currently in progress.")  # طباعة رسالة تشير إلى أن المهمة قيد التنفيذ
+    
+    # الحالة الثالثة: إذا كانت القيمة "completed"
+    case "completed":
+        print("The task has been completed.")  # طباعة رسالة تشير إلى أن المهمة قد اكتملت
+    
+    # الحالة الافتراضية: إذا كانت القيمة لا تطابق أي حالة سابقة
+    case _:
+        print("Unknown status.")  # طباعة رسالة تشير إلى أن الحالة غير معروفة
