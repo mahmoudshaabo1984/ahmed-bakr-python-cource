@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>الفرق بين  __init__ و @classmethod و @staticmethod</title>
+</head>
+<body>
+    <p>في بايثون، هناك فرق جوهري بين <code>__init__</code> و <code>@classmethod</code> و <code>@staticmethod</code>، حيث لكل منها وظيفة مختلفة في البرمجة الكائنية التوجه (OOP)..</p>
+<hr>
+<h2>1️⃣ <strong><code>__init__</code> Method</strong></h2>
+<p>🔹 <strong>ما هو؟</strong><br>
+هو <strong>المُهيّئ (constructor)</strong> في الكلاس، يتم استدعاؤه تلقائيًا عند إنشاء كائن (instance) جديد من الكلاس.<br>
+🔹 <strong>الهدف؟</strong><br>
+يُستخدم لتهيئة خصائص (Attributes) الكائن الجديد.</p>
+<p>🔹 <strong>يستقبل <code>self</code></strong> (الإشارة إلى الكائن نفسه).</p>
+<p>🔹 <strong>مثال:</strong></p>
+<pre><code class="language-python">class Person:
+    def __init__(self, name, age):
+        self.name = name
+        self.age = age
+
+# إنشاء كائن جديد من الكلاس
+person1 = Person(&quot;أحمد&quot;, 25)
+
+print(person1.name)  # أحمد
+print(person1.age)   # 25
+</code></pre>
+<p>📌 <strong>الملاحظات:</strong></p>
+<ul>
+<li>عند استدعاء <code>Person(&quot;أحمد&quot;, 25)</code>, يتم استدعاء <code>__init__</code> تلقائيًا لتهيئة القيم.</li>
+</ul>
+<hr>
+<h2>2️⃣ <strong><code>@classmethod</code></strong></h2>
+<p>🔹 <strong>ما هو؟</strong><br>
+هو <strong>طريقة (method) تتبع الكلاس نفسه بدلاً من الكائنات الفردية</strong>.</p>
+<p>🔹 <strong>يستقبل <code>cls</code></strong> (الإشارة إلى الكلاس نفسه بدلاً من الكائن <code>self</code>).</p>
+<p>🔹 <strong>يُستخدم عندما نريد تعديل أو العمل على بيانات تخص الكلاس نفسه وليس كائنًا معينًا.</strong></p>
+<p>🔹 <strong>مثال:</strong></p>
+<pre><code class="language-python">class Employee:
+    employees_count = 0  # متغير تابع للكلاس
+    
+    def __init__(self, name):
+        self.name = name
+        Employee.employees_count += 1
+
+    @classmethod
+    def set_employees_count(cls, new_count):
+        cls.employees_count = new_count  # تعديل المتغير العام للكلاس
+
+print(Employee.employees_count)  # 0
+
+emp1 = Employee(&quot;محمد&quot;)
+emp2 = Employee(&quot;علي&quot;)
+
+print(Employee.employees_count)  # 2
+
+Employee.set_employees_count(10)  # تعديل القيمة عبر @classmethod
+
+print(Employee.employees_count)  # 10
+</code></pre>
+<p>📌 <strong>الملاحظات:</strong></p>
+<ul>
+<li><code>@classmethod</code> تستخدم <code>cls</code> بدلاً من <code>self</code>، لذا يمكنها تعديل متغيرات الكلاس.</li>
+<li>يمكن استدعاؤها بدون الحاجة إلى إنشاء كائن.</li>
+</ul>
+<hr>
+<h2>3️⃣ <strong><code>@staticmethod</code></strong></h2>
+<p>🔹 <strong>ما هو؟</strong><br>
+هو <strong>دالة عادية داخل الكلاس لا تعتمد على <code>self</code> أو <code>cls</code></strong>، بل تُعامل كدالة مستقلة داخل الكلاس.</p>
+<p>🔹 <strong>لا تحتاج إلى <code>self</code> أو <code>cls</code></strong>.<br>
+🔹 <strong>تُستخدم للدوال التي لا تحتاج إلى الوصول إلى متغيرات الكلاس أو الكائن.</strong></p>
+<p>🔹 <strong>مثال:</strong></p>
+<pre><code class="language-python">class MathOperations:
+    
+    @staticmethod
+    def add(x, y):
+        return x + y
+
+    @staticmethod
+    def multiply(x, y):
+        return x * y
+
+# استدعاء الميثود بدون الحاجة إلى كائن
+print(MathOperations.add(5, 3))        # 8
+print(MathOperations.multiply(4, 2))   # 8
+</code></pre>
+<p>📌 <strong>الملاحظات:</strong></p>
+<ul>
+<li><code>@staticmethod</code> لا تعتمد على الكائن أو الكلاس، لذا يمكن استدعاؤها مباشرة بدون الحاجة إلى <code>self</code> أو <code>cls</code>.</li>
+<li>تُستخدم عندما يكون هناك وظائف تابعة للكلاس ولكنها لا تحتاج إلى بيانات الكائنات أو الكلاس.</li>
+</ul>
+<hr>
+<h2><strong>📌 الفرق الرئيسي بين الثلاثة</strong></h2>
+<table>
+<thead>
+<tr>
+<th></th>
+<th><code>__init__</code></th>
+<th><code>@classmethod</code></th>
+<th><code>@staticmethod</code></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>ما هو؟</strong></td>
+<td>المُهيّئ (constructor)</td>
+<td>ميثود تتعامل مع الكلاس</td>
+<td>ميثود عادية لا تعتمد على الكائن أو الكلاس</td>
+</tr>
+<tr>
+<td><strong>ما الذي تستقبله؟</strong></td>
+<td><code>self</code> (إشارة إلى الكائن)</td>
+<td><code>cls</code> (إشارة إلى الكلاس)</td>
+<td>لا تستقبل <code>self</code> أو <code>cls</code></td>
+</tr>
+<tr>
+<td><strong>متى تُستخدم؟</strong></td>
+<td>عند إنشاء كائن جديد</td>
+<td>عند تعديل بيانات الكلاس</td>
+<td>عندما نريد دالة مستقلة داخل الكلاس</td>
+</tr>
+<tr>
+<td><strong>هل يمكن استدعاؤها بدون كائن؟</strong></td>
+<td>لا</td>
+<td>نعم</td>
+<td>نعم</td>
+</tr>
+</tbody>
+</table>
+<hr>
+<h2><strong>💡 متى أستخدم كل واحد؟</strong></h2>
+<p>✅ <strong>استخدم <code>__init__</code> عندما تحتاج إلى إعداد كائن جديد من الكلاس وتخزين البيانات الخاصة به.</strong><br>
+✅ <strong>استخدم <code>@classmethod</code> عندما تحتاج إلى تعديل أو الوصول إلى متغيرات الكلاس وليس كائنًا معينًا.</strong><br>
+✅ <strong>استخدم <code>@staticmethod</code> عندما تحتاج إلى وظيفة لا تعتمد على الكائن أو الكلاس ولكنها منطقياً مرتبطة بالكلاس.</strong></p>
+<hr>
+<h3>🔥 <strong>مثال يجمع الثلاثة معًا:</strong></h3>
+<pre><code class="language-python">class Car:
+    cars_count = 0  # متغير تابع للكلاس
+
+    def __init__(self, brand, model):
+        self.brand = brand
+        self.model = model
+        Car.cars_count += 1
+
+    @classmethod
+    def set_cars_count(cls, count):
+        cls.cars_count = count
+
+    @staticmethod
+    def is_luxury(brand):
+        return brand in [&quot;Mercedes&quot;, &quot;BMW&quot;, &quot;Audi&quot;]
+
+# إنشاء كائنات
+car1 = Car(&quot;Toyota&quot;, &quot;Corolla&quot;)
+car2 = Car(&quot;BMW&quot;, &quot;X5&quot;)
+
+# استخدام @classmethod
+Car.set_cars_count(10)
+print(Car.cars_count)  # 10
+
+# استخدام @staticmethod
+print(Car.is_luxury(&quot;Toyota&quot;))  # False
+print(Car.is_luxury(&quot;BMW&quot;))     # True
+</code></pre>
+<hr>
+<h3><strong>🎯 الخلاصة</strong></h3>
+<ul>
+<li><code>__init__</code>: يهيئ الكائن عند إنشائه ويستخدم <code>self</code>.</li>
+<li><code>@classmethod</code>: يتعامل مع بيانات الكلاس وليس كائنًا معينًا، ويستخدم <code>cls</code>.</li>
+<li><code>@staticmethod</code>: لا تحتاج إلى <code>self</code> أو <code>cls</code>، وهي دالة عادية ضمن الكلاس.</li>
+</ul>
+</body>
+</html>
