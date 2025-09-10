@@ -1,0 +1,381 @@
+
+
+
+
+# Object-Oriented Programming
+# encapsulation التغليف 
+# البيانات العامة Public
+# هذه البيانات العامة الي شخص يمكن الوصول اليها 
+# سواءا من داخل الكلاس أو خارجه 
+# class Member:
+#     def __init__(self, name):
+#         self.name = name
+
+# one = Member("ahmed")
+# print(one.name)
+
+
+
+# Object-Oriented Programming
+# encapsulation التغليف 
+# البيانات العامة Public
+# هذه البيانات العامة الي شخص يمكن الوصول اليها 
+# سواءا من داخل الكلاس أو خارجه 
+# هنا قمنا بالتعديل على البيانات العامة 
+# class Member:
+#     def __init__(self, name):
+#         self.name = name
+
+# one = Member("ahmed")
+# print(one.name)
+# one.name = "perfect"
+# print(one.name)
+
+
+
+# Object-Oriented Programming
+# encapsulation التغليف 
+# البيانات المحمية Protected
+# هذه البيانات لا يمكن الوصول اليها الا فقط 
+# عن طريق الكلاس الخاصة بك او الكلاس 
+# الوارث من الكلاس الرئيسي 
+# طريقة كتابة هذه البيانات المحمية هو 
+# وضع علامة _ بعد النقطة في المتغير self 
+# ملاحظة في بيثون سوف تعمل البيانات المحمية اذا ناديناها 
+# حتى ولو خارج الكلاس 
+# class Member:
+#     def __init__(self, name):
+#         self._name = name
+
+# one = Member("ahmed")
+# print(one._name)
+# one.name = "perfect"
+# print(one._name)
+
+
+
+
+# Object-Oriented Programming
+# encapsulation التغليف 
+# البيانات المخفية private
+# هذه البيانات خاصة جدا لا ييمكن الوصول اليها 
+# الا فقط عن طريق الكلاس الخاص فيك 
+# طريقة كتابتها وضع علامتين __ بعد النقطة 
+# بعد المتغير self 
+# هنا سوف يحدث خطء لأننا حاولنا الوصول الى البيانات 
+# المخفية من خارج الكلاس الخطء هو 
+# AttributeError: 'Member' object has no attribute '__name'
+# class Member:
+#     def __init__(self, name):
+#         self.__name = name
+
+# one = Member("ahmed")
+# print(one.__name)
+
+
+# Object-Oriented Programming
+# encapsulation التغليف 
+# البيانات المخفية private
+# هذه البيانات خاصة جدا لا ييمكن الوصول اليها 
+# الا فقط عن طريق الكلاس الخاص فيك 
+# طريقة كتابتها وضع علامتين __ بعد النقطة 
+# بعد المتغير self 
+# هنا استطعنا ان نوصل الى البيانات المحمية لأننا أنشءنا دالة داخل 
+# الكلاس الخاص فينا وبالطبع هذهبياناتنا المخفية نستطيع الوصول ليها الآن
+# class Member:
+#     def __init__(self, name):
+#         self.__name = name
+
+#     def hello(self):
+#         return f"hello {self.__name}"
+
+# one = Member("ahmed")
+# print(one.hello())
+
+
+# Object-Oriented Programming
+# encapsulation التغليف 
+# البيانات المخفية private
+# انشاء دالتين دالة لجلب البيانات  getter 
+# ودالة لتعديل البيانات setter 
+# هنا أستخدمنا الدالة لجلب البيانات getter 
+# class Member:
+#     def __init__(self, name):
+#         self.__name = name
+
+#     def hello(self):
+#         return f"hello {self.__name}"
+
+#     def get_name(self):
+#         return self.__name
+
+# one = Member("ahmed")
+# print(one.get_name())
+
+
+# Object-Oriented Programming
+# encapsulation التغليف 
+# البيانات المخفية private
+# انشاء دالتين دالة لجلب البيانات  getter 
+# ودالة لتعديل البيانات setter 
+# هنا سوف نستخدم الدالة لتعديل البيانات المخفية setter 
+# class Member:
+#     def __init__(self, name):
+#         self.__name = name
+
+#     def hello(self):
+#         return f"hello {self.__name}"
+
+#     def get_name(self):
+#         return self.__name
+#     def set_name(self, new_name):
+#         self.__name = new_name
+
+# one = Member("ahmed")
+# print(one.get_name())
+# one.set_name("MesterPerfect")
+# print(one.get_name())
+
+
+
+# Object-Oriented Programming
+# property الخصائص 
+# وظيفتها جعل الدوال كخصائص لكي يتم التعديل عليها 
+# مثل المتغيرات في الكلاسات 
+# لأن المتغيرات تعتبر  property 
+# هنا كتبنا الكود من دون تعديل 
+# class Member:
+#     def __init__(self, name, age):
+#         self.name = name
+#         self.age = age
+
+#     def say_hello(self):
+#         return f"hello {self.name}"
+
+#     def age_in_days(self):
+#         return self.age * 365
+		
+
+# one = Member("ahmed", 25)
+# print(one.name)
+# print(one.age)
+# print(one.say_hello())
+# print(one.age_in_days())
+
+
+
+# Object-Oriented Programming
+# property الخصائص 
+# وظيفتها جعل الدوال كخصائص لكي يتم التعديل عليها 
+# مثل المتغيرات في الكلاسات 
+# لأن المتغيرات تعتبر  property 
+# هنا جعلنا الدوال لكي تصبح خصائص 
+# حيث قمنا بوضع معامل فوق الدالة 
+# هذا المعامل يسمى @property
+# class Member:
+#     def __init__(self, name, age):
+#         self.name = name
+#         self.age = age
+#     @property
+#     def say_hello(self):
+#         return f"hello {self.name}"
+#     @property
+#     def age_in_days(self):
+#         return self.age * 365	
+
+# one = Member("ahmed", 25)
+# print(one.name)
+# print(one.age)
+# print(one.say_hello)
+# print(one.age_in_days)
+
+
+
+# Object-Oriented Programming
+# property الخصائص 
+# هنا أنشءنا معامل ثاني بأسم message في الدالة  say_hello
+# هنا كتبنا الكود من دون تعديل 
+# class Member:
+#     def __init__(self, name, age):
+#         self.name = name
+#         self.age = age
+
+#     def say_hello(self, message):
+#         self.message = message
+#         return f"hello {self.name}, {self.message}"
+
+#     @property
+#     def age_in_days(self):
+#         return self.age * 365
+
+# one = Member("ahmed", 25)
+# print(one.name)
+# print(one.age)
+# print(one.say_hello("i love python"))
+# print(one.age_in_days)
+
+
+# Object-Oriented Programming
+# property الخصائص 
+# هنا أنشءنا معامل ثاني بأسم message في الدالة  say_hello
+# هنا سوف يحدث خطء لأننا لا يمكن تحويل الدالة say_hello الى 
+# property  لأن الدالة تحتوي على معامل message  هذا المعامل 
+# يحتوي على مدخلات  input  للتحويل فقط الدوال تقبل المعاملات 
+# اتي فيها مخرجات output وليس input 
+# class Member:
+#     def __init__(self, name, age):
+#         self.name = name
+#         self.age = age
+#     @property
+#     def say_hello(self, message):
+#         self.message = message
+#         return f"hello {self.name}, {self.message}"
+
+#     @property
+#     def age_in_days(self):
+#         return self.age * 365
+
+# one = Member("ahmed", 25)
+# print(one.name)
+# print(one.age)
+# print(one.say_hello)
+# print(one.age_in_days)
+
+
+#  Object-Oriented Programming
+# abstract classes الكلاسات المجردة 
+# هذه الكلاسات تحتوي على مجموعة من الدوال المجردة 
+# اذا اراد اي مستخدم ان يبنى كلاس على غرار الكلاس الخاص بك
+# يجب عليه ان ينضبت بنفس القواعد التي قمت ببناء الكلاس 
+# الخاص فيك على نفس هذه القواعد 
+# على سبيل المثال هذا الكود يحتوي على 3 دوال اذا اراد 
+# المستخدم ان يبني كلاس خاص فيه على كلاسنا يجب عليه 
+# ان يحتوي كلاسه على هذه 3 دوال بنفس الأسماء والمعاملات 
+# from abc import ABC, abstractmethod
+# class APCLanguage(ABC):
+#     def __init__(self, name):
+#         self.name = name
+
+#     @abstractmethod
+#     def has_oop(self):
+#         pass
+
+#     @abstractmethod
+#     def is_interpreted(self):
+#         pass
+
+#     @abstractmethod
+#     def is_compiled(self):
+#         pass
+
+# class Python(APCLanguage):
+#     def __init__(self):
+#         super().__init__("Python")
+
+#     def has_oop(self):
+#         return True
+
+#     def is_interpreted(self):
+#         return True
+
+#     def is_compiled(self):
+#         return False
+
+# class Dart(APCLanguage):
+#     def __init__(self):
+#         super().__init__("Dart")
+
+#     def has_oop(self):
+#         return True
+
+#     def is_interpreted(self):
+#         return False
+
+#     def is_compiled(self):
+#         return True
+
+# langs = [Python(), Dart()]
+# for lang in langs:
+#     print(f"Language: {lang.name}")
+#     print(f"  Has OOP: {lang.has_oop()}")
+#     print(f"  Is Interpreted: {lang.is_interpreted()}")
+#     print(f"  Is Compiled: {lang.is_compiled()}")
+#     print("-" * 30)
+
+
+
+#  Object-Oriented Programming
+# abstract classes الكلاسات المجردة 
+# هذه الكلاسات تحتوي على مجموعة من الدوال المجردة 
+# اذا اراد اي مستخدم ان يبنى كلاس على غرار الكلاس الخاص بك
+# يجب عليه ان ينضبت بنفس القواعد التي قمت ببناء الكلاس 
+# الخاص فيك على نفس هذه القواعد 
+# على سبيل المثال هذا الكود يحتوي على 3 دوال اذا اراد 
+# المستخدم ان يبني كلاس خاص فيه على كلاسنا يجب عليه 
+# ان يحتوي كلاسه على هذه 3 دوال بنفس الأسماء والمعاملات 
+# هنا سوف يحدث خطء لأننا اضفنا كلاس PHP ليست موجودة في الكلاس 
+# الرئيسي لهذا المستخدم قام بمخالفة القواعد 
+# لأنه قد حذف دالة رئيسية في الكلاس الأساسي المجرد 
+# وخالف القواعد لهذا حدث خطئ ولم يعمل الكود 
+# from abc import ABC, abstractmethod
+# class APCLanguage(ABC):
+#     def __init__(self, name):
+#         self.name = name
+
+#     @abstractmethod
+#     def has_oop(self):
+#         pass
+
+#     @abstractmethod
+#     def is_interpreted(self):
+#         pass
+
+#     @abstractmethod
+#     def is_compiled(self):
+#         pass
+
+# class Python(APCLanguage):
+#     def __init__(self):
+#         super().__init__("Python")
+
+#     def has_oop(self):
+#         return True
+
+#     def is_interpreted(self):
+#         return True
+
+#     def is_compiled(self):
+#         return False
+
+# class Dart(APCLanguage):
+#     def __init__(self):
+#         super().__init__("Dart")
+
+#     def has_oop(self):
+#         return True
+
+#     def is_interpreted(self):
+#         return False
+
+#     def is_compiled(self):
+#         return True
+
+# class PHP(APCLanguage):
+#     def __init__(self):
+#         super().__init__("PHP")
+
+#     def has_oop(self):
+#         return True
+
+#     def is_compiled(self):
+#         return True
+
+# langs = [Python(), Dart(), PHP()]
+
+# for lang in langs:
+#     print(f"Language: {lang.name}")
+#     print(f"  Has OOP: {lang.has_oop()}")
+#     print(f"  Is Interpreted: {lang.is_interpreted()}")
+#     print(f"  Is Compiled: {lang.is_compiled()}")
+#     print("-" * 30)
+
