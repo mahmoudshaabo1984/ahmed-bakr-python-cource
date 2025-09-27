@@ -1,0 +1,88 @@
+🧩 أولًا: ما هو الموديول (module) أو الباكيج (package)؟
+• 
+الموديول: ملف بايثون يحتوي على مجموعة من الدوال (functions) أو الكلاسات (classes) التي تؤدي وظائف معينة.
+• 
+الباكيج: حزمة أكبر ممكن تحتوي على عدة موديولات.
+🔹 الهدف منها هو توفير الوقت والمجهود بدل ما تكتب الكود بنفسك، تستخدم كود جاهز.
+🧪 أمثلة على احتياجات قد تستخدم فيها الموديولات:
+• 
+توليد أرقام عشوائية
+• 
+التعامل مع الوقت
+• 
+تعديل ملفات الريجستري
+• 
+التعامل مع ملفات JSON
+• 
+التعامل مع ملفات INI
+ 
+🔍 أين توجد الموديولات؟
+• 
+موديولات مضمنة (Built-in): مثل random, time, os... إلخ.
+• 
+موديولات مثبتة يدويًا: تكون موجودة داخل مجلد site-packages.
+ 
+✅ كيفية استخدام الموديولات:
+1. استخدام import:
+import random
+print(random.random())  # يطبع رقم عشـوائي بين 0 و 1
+2. معرفة موقع الموديول:
+print(random.__file__)
+3. معرفة محتويات الموديول:
+print(dir(random))
+4. استخدام دوال الموديول:
+print(random.random())          # رقم عشـوائي (float)
+print(random.randint(10, 600))  # رقم عشـوائي بين 10 و 600
+ 
+🔄 طرق مختلفة لاستدعاء الموديولات:
+استخدام from و import:
+from random import random, randint
+print(random())       # بدون الحاجة لكتابة random.random()
+print(randint(1, 100))
+استخدام اسم مستعار (alias) مع as:
+import random as rm
+print(rm.random())
+print(rm.randint(1, 50))
+ 
+🧰 تثبيت وحذف الموديولات:
+أداة pip (Python Installer Package):
+• 
+تثبيت مكتبة:
+pip install اسم_المكتبة
+• 
+حذف مكتبة:
+pip uninstall اسم_المكتبة
+مثال من موقع pypi.org:
+• 
+تقدر تبحث عن أي مكتبة وتثبتها.
+• 
+مثلًا: مكتبة ketchup، هتلاقي معلومات عنها وكيفية تثبيتها وتشغيلها.
+ 
+🧱 إنشاء موديول خاص بك:
+1. إنشاء ملف بايثون (مثلاً: taekwondo.py) يحتوي على دوال:
+def say_hello():
+    print("Hello Mr. Someone")
+
+def hi():
+    print("Hi, welcome!")
+
+def random_number():
+    import random
+    print(random.randint(1, 100))
+2. استدعاؤه في ملف آخر:
+import taekwondo
+taekwondo.say_hello()
+taekwondo.hi()
+taekwondo.random_number()
+3. استخدام اسم مستعار:
+import taekwondo as tkd
+tkd.hi()
+ 
+💡 ملحوظات هامة:
+• 
+يمكنك تحديد إصدار معين عند التثبيت:
+pip install library==1.2.3
+• 
+بعض المكتبات تحتاج إلى مكتبات مساعدة أخرى، وpip بيثبتها تلقائيًا.
+• 
+إنشاء بيئات افتراضية يساعد في تجنب التعارض بين المشاريع.

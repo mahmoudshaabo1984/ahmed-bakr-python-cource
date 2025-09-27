@@ -1,0 +1,110 @@
+
+python code for lecture 20 tested2
+
+# استيراد مكتبة random للأرقام العشوائية
+import random
+# طباعة معلومات عن كائن المكتبة
+print(random)
+# عرض جميع الدوال والخصائص المتاحة في مكتبة random
+print(dir(random))
+
+
+# استخدام دالة random() لتوليد رقم عشوائي عشري بين 0 و 1
+import random
+print(random.random())
+
+
+# استخدام دالة randint() لتوليد أرقام صحيحة عشوائية
+import random
+# تصحيح: تغيير النطاق ليكون أكثر فائدة (كان 50, 50)
+print(random.randint(1, 50))  # رقم عشوائي بين 1 و 50
+print(random.randint(10, 600))  # رقم عشوائي بين 10 و 600
+
+
+# استيراد دوال محددة من المكتبة بدلاً من استيراد المكتبة كاملة
+# هذا يسمح باستخدام الدوال مباشرة دون كتابة اسم المكتبة
+from random import random, randint
+
+print(random())  # رقم عشوائي عشري بين 0 و 1
+print(randint(10, 600))  # رقم صحيح عشوائي بين 10 و 600
+
+
+# استيراد المكتبة باسم مختصر لتسهيل الاستخدام
+import random as rm
+
+print(rm.random())  # رقم عشوائي عشري بين 0 و 1
+print(rm.randint(10, 600))  # رقم صحيح عشوائي بين 10 و 600
+
+
+# موقع PyPI لتنزيل وإدارة مكتبات Python
+# يحتوي على آلاف المكتبات الجاهزة للاستخدام
+# الرابط: https://pypi.org/
+
+
+# أوامر pip للتعامل مع المكتبات
+# ملاحظة: هذه الأوامر تُنفذ في موجه الأوامر (Terminal/CMD) وليس في ملف Python
+
+# تثبيت مكتبة جديدة
+# pip install webscout
+
+# ترقية pip إلى أحدث إصدار
+# python -m pip install --upgrade pip
+
+# إلغاء تثبيت مكتبة
+# pip uninstall webscout
+
+
+# إنشاء مكتبة محلية بسيطة (ملف tecwindow.py)
+# هذا المحتوى يجب أن يكون في ملف منفصل باسم tecwindow.py
+"""
+محتوى ملف tecwindow.py:
+"""
+import random
+
+def say_hello(name):
+    """دالة لطباعة رسالة ترحيب بسيطة"""
+    print(f"hello {name}")
+
+def say_hi(name):
+    """دالة لطباعة تحية رسمية"""
+    print(f"hi mr {name}")
+
+def show_random_num():
+    """دالة لعرض أرقام عشوائية"""
+    # تصحيح: إضافة طباعة رقمين كما يذكر التعليق
+    print(f"رقم عشري عشوائي: {random.random()}")
+    print(f"رقم صحيح عشوائي بين 10 و 600: {random.randint(10, 600)}")
+
+
+# استخدام المكتبة المحلية tecwindow
+# ملاحظة: يجب أن يكون ملف tecwindow.py في نفس المجلد
+import tecwindow
+
+# عرض معلومات عن المكتبة
+print(tecwindow)
+# عرض جميع الدوال المتاحة في المكتبة
+print(dir(tecwindow))
+
+
+# استدعاء دالة say_hello من المكتبة
+import tecwindow
+tecwindow.say_hello("ahmed")  # سيطبع: hello ahmed
+
+
+# استدعاء دالة say_hi من المكتبة
+import tecwindow
+# تصحيح: إزالة "mr" من الاسم لأن الدالة تضيفها تلقائياً
+tecwindow.say_hi("ahmed")  # سيطبع: hi mr ahmed
+
+
+# استدعاء دالة show_random_num لعرض أرقام عشوائية
+import tecwindow
+tecwindow.show_random_num()  # سيطبع رقمين عشوائيين
+
+
+# استيراد المكتبة باسم مختصر وتجربة جميع دوالها
+import tecwindow as tw
+
+tw.say_hello("ahmed")     # سيطبع: hello ahmed
+tw.say_hi("ahmed")        # سيطبع: hi mr ahmed
+tw.show_random_num()      # سيطبع رقمين عشوائيين

@@ -1,0 +1,71 @@
+python code for lecture 20 tested1
+
+
+# الاستيراد الأول: نستورد مكتبة random لاستخدام دوال توليد الأرقام العشوائية
+import random
+
+# نطبع كائن المكتبة نفسه ثم قائمة بالسمات والدوال المتاحة فيها
+print(random)
+print(dir(random))
+
+
+# نستخدم دالة random() لإرجاع عدد عشْوائي عشري بين 0 و1
+print(random.random())
+
+
+# نستخدم دالة randint(a, b) لإرجاع عدد صحيح عشْوائي بين a وb شاملةً القيمتين
+print(random.randint(50, 50))    # هنا سيُعيد دائمًا 50 لأن النطاق محدود بـ 50–50
+print(random.randint(10, 600))   # مثال على نطاق أوسع من 10 إلى 600
+
+
+# يمكن الاستيراد المباشر للدوال لتسهيل الاستدعاء لاحقًا
+# في هذا القسم نستورد دالتي random و randint مباشرةً من مكتبة random
+from random import random, randint
+
+# نطبع نتائج الدالتيْن دون الحاجة لكتابة random. قبل كل منهما
+print(random())
+print(randint(10, 600))
+
+
+# استخدام alias لتبسيط اسم المكتبة عند الاستدعاء
+import random as rm
+
+# نختصر random.random() إلى rm.random()
+print(rm.random())
+print(rm.randint(10, 600))
+
+
+# تثبيت مكتبة خارجية باستخدام pip (يُننفّذ في الطرفية وليس داخل ملف بايثون)
+# pip install webscout
+
+# ترقية مدير الحزم pip لأحدث إصدار (يُننفّذ عبر الأمر التالي في الطرفية)
+# python -m pip install --upgrade pip
+
+# لإلغاء تثبيت مكتبة webscout:
+# pip uninstall webscout
+
+
+# أمثلة على دوال ضمن مكتبة افتراضية tecwindow
+# نعرض تعريف دوال say_hello و say_hi ودالة show_random_num
+import tecwindow
+
+# طباعة كائن المكتبة وقائمة سماتها
+print(tecwindow)
+print(dir(tecwindow))
+
+# استدعاء دالة say_hello لطباعة رسالة ترحيب بالشكل "hello {name}"
+tecwindow.say_hello("ahmed")
+
+# استدعاء دالة say_hi لطباعة تحية رسمية بالشكل "hi mr {name}"
+tecwindow.say_hi("mr ahmed")
+
+# استدعاء دالة show_random_num لعرض رقم عشْوائي عشري ورقم صحيح عشْوائي
+tecwindow.show_random_num()
+
+
+# استخدام alias لتبسيط استدعاءات مكتبة tecwindow
+import tecwindow as tw
+
+tw.say_hello("ahmed")
+tw.say_hi("ahmed")
+tw.show_random_num()
